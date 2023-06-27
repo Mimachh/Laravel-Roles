@@ -1,0 +1,36 @@
+.admin-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+  }
+  
+  .admin-form-container h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .admin-form-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .admin-form-container input[type="text"],
+  .admin-form-container input[type="email"],
+  .admin-form-container input[type="password"],
+  .admin-form-container button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .admin-form-container button[type="submit"] {
+    background-color: var(--success);
+    color: white;
+    cursor: pointer;
+  }
+  
+  .admin-form-container button[type="submit"]:hover {
+    background-color: var(--hover-success);
+  }
