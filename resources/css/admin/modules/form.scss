@@ -2,6 +2,12 @@
     max-width: 400px;
     margin: 0 auto;
     margin-top: 1.5rem;
+
+    form {
+      div {
+        margin-bottom: 0.9rem;
+      }
+    }
   }
   
   .admin-form-container h1 {
@@ -34,3 +40,9 @@
   .admin-form-container button[type="submit"]:hover {
     background-color: var(--hover-success);
   }
+
+.error {
+  color: var(--danger);
+  font-style: italic;
+
+}

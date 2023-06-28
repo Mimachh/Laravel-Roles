@@ -8,7 +8,8 @@ export default defineConfig({
                 'resources/css/app.css', 
                 'resources/js/app.js',
 
-                'resources/js/modules/login-register.js',
+                'resources/js/public/index.js',
+                'resources/js/public/modules/login-register.js',
 
                 'resources/js/admin.js/dashboard.js'
             ],

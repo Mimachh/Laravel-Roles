@@ -1,21 +1,24 @@
-import '../../css/modules/login.scss';
+import '../../../css/public/modules/login.scss';
 
 
 const themes = [
     {
         background: "#1A1A2E",
         color: "#FFFFFF",
-        primaryColor: "#0F3460"
+        primaryColor: "#0F3460",
+        errorAlert: 'red'
     },
     {
         background: "#461220",
         color: "#FFFFFF",
-        primaryColor: "#E94560"
+        primaryColor: "#E94560",
+        errorAlert: 'red'
     },
     {
         background: "#192A51",
         color: "#FFFFFF",
-        primaryColor: "#967AA1"
+        primaryColor: "#967AA1",
+        errorAlert: 'red'
     },
     {
         background: "#F7B267",
@@ -30,7 +33,8 @@ const themes = [
     {
         background: "#231F20",
         color: "#FFF",
-        primaryColor: "#BB4430"
+        primaryColor: "#BB4430",
+        errorAlert: 'red'
     }
 ];
 
@@ -40,6 +44,7 @@ const setTheme = (theme) => {
     root.style.setProperty("--color", theme.color);
     root.style.setProperty("--primary-color", theme.primaryColor);
     root.style.setProperty("--glass-color", theme.glassColor);
+    root.style.setProperty("--error-alert", theme.errorAlert);
 };
 
 const displayThemeButtons = () => {

@@ -47,5 +47,7 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('viewReservationsInAdmin', function (User $user) {
             return $user->roles->contains('id', 1) || $user->roles->contains('id', 2) || $user->roles->contains('id', 4);
         });
+
+
     }
 }

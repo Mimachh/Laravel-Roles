@@ -1,5 +1,5 @@
-import '../../css/utility/fonts.scss';
-import '../../css/utility/buttons.scss';
+import '../../css/public/utility/fonts.scss';
+import '../../css/public/utility/buttons.scss';
 
 
 import '../../css/admin/modules/form.scss';

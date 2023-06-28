@@ -23,17 +23,6 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/superadmin', function () {
-    return view('superadmin');
-});
-
-Route::get('/user', function () {
-    return view('user');
-});
-
-Route::get('/auteur', function () {
-    return view('auteur');
-});
 
 Route::get('redirects', 'App\Http\Controllers\HomeController@index');
 
@@ -65,9 +54,7 @@ Route::middleware(['auth', 'role:1'])->group(function () {
 Route::middleware(['auth', 'role:1,2,3,4'])->group(function () {
 
     // Pour le dasboard admin
-    Route::get('/auteur', function () {
-        return view('auteur');
-    });
+
 });
 
 Route::group(['middleware' => 'auth'], function() {

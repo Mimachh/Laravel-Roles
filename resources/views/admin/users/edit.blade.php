@@ -9,17 +9,26 @@
 
         <div>
             <label for="name">Nom</label>
-            <input type="text" name="name" id="name" value="{{ $user->name }}" required>
+            <input type="text" name="name" id="name" value="{{ old('name', $user->name) }}" required>
+            @error('name')
+                <div class="error">{{ $message }}</div>
+            @enderror
         </div>
 
         <div>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" value="{{ $user->email }}" required>
+            <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}" required>
+            @error('email')
+                <div class="error">{{ $message }}</div>
+            @enderror
         </div>
 
         <div>
             <label for="password">Mot de passe</label>
             <input type="password" name="password" id="password" placeholder="Laissez vide pour ne pas modifier le mot de passe">
+            @error('password')
+                <div class="error">{{ $message }}</div>
+            @enderror
         </div>
 
         <div>
@@ -32,6 +41,9 @@
                     </div>
                 @endforeach
             </div>
+            @error('roles')
+                <div class="error">{{ $message }}</div>
+            @enderror
         </div>
 
         <button type="submit">Enregistrer</button>

@@ -11,7 +11,8 @@
 
     @yield('content')
 
-    @vite('resources/js/modules/login-register.js')
+    @vite('resources/js/public/modules/login-register.js')
+    @vite('resources/js/public/index.js')
     @yield('scripts')
 
     @push('scripts')

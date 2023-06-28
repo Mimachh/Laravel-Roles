@@ -31,7 +31,7 @@ class UserController extends Controller
     {
         $this->authorize('create', User::class);
         
-        $roles = Role::all();
+        $roles = Role::whereNotIn('id', [5])->get();
         return view('admin.users.create', compact('roles'));
     }
 
@@ -43,7 +43,15 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
-            'roles' => 'array' // Ajoutez d'autres validations si nécessaire
+            'roles' => 'array'
+        ], [
+            'name.required' => 'Le champ "Nom" est obligatoire.',
+            'email.required' => 'Le champ "Email" est obligatoire.',
+            'email.email' => 'Veuillez saisir une adresse email valide.',
+            'email.unique' => 'Cet email est déjà utilisé.',
+            'password.required' => 'Le champ "Mot de passe" est obligatoire.',
+            'password.min' => 'Le mot de passe doit contenir au moins :min caractères.',
+            'roles.array' => 'Les rôles doivent être de type tableau.'
         ]);
 
         $user = new User();
@@ -83,6 +91,13 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'nullable|min:6',
             'roles' => 'array',
+        ], [
+            'name.required' => 'Le champ "Nom" est requis.',
+            'email.required' => 'Le champ "Email" est requis.',
+            'email.email' => 'L\'adresse email doit être valide.',
+            'email.unique' => 'L\'adresse email est déjà utilisée.',
+            'password.min' => 'Le mot de passe doit comporter au moins :min caractères.',
+            'roles.array' => 'Les rôles doivent être sélectionnés sous forme de tableau.',
         ]);
     
         $user->name = $validatedData['name'];
@@ -94,7 +109,11 @@ class UserController extends Controller
     
         $user->save();
     
-        $user->roles()->sync($validatedData['roles']);
+        if ($request->filled('roles')) {
+            $user->roles()->sync($validatedData['roles']);
+        } else {
+            $user->roles()->detach();
+        }
     
         return redirect()->route('admin.users.index')->with('success', 'Utilisateur mis à jour avec succès.');
     }

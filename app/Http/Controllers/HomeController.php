@@ -18,13 +18,13 @@ class HomeController extends Controller
         }
     
         if (in_array(1, $checkRoles, false)) {
-            return redirect('/superadmin');
+            return redirect('/admin/dashboard');
         } else if (in_array(2, $checkRoles, false)) {
-            return redirect('/home');
+            return redirect('/admin/dashboard');
         } else if (in_array(3, $checkRoles, false)) {
-            return redirect('/auteur');
+            return redirect('/admin/dashboard');
         } else if (in_array(5, $checkRoles, false)) {
-            return redirect('/user');
+            return redirect('/');
         }
 
     }

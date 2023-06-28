@@ -2,6 +2,7 @@
     --background: #1a1a2e;
     --color: #ffffff;
     --primary-color: #0f3460;
+    --error-alert: red;
 }
 
 * {
@@ -24,6 +25,11 @@ body {
     -moz-transition: background 0.2s ease;
     -ms-transition: background 0.2s ease;
     -o-transition: background 0.2s ease;
+}
+
+.invalid-feedback {
+    color: var(--error-alert);
+    font-style: italic;
 }
 
 a {
@@ -63,7 +69,7 @@ h1 {
     display: block;
     padding: 14.5px;
     width: 100%;
-    margin: 2rem 0;
+    // margin: 2rem 0;
     color: var(--color);
     outline: none;
     background-color: #9191911f;
@@ -77,6 +83,10 @@ h1 {
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+}
+
+.login-container form > div {
+    margin: 2rem 0;
 }
 
 .login-container form input:focus {
