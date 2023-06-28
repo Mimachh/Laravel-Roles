@@ -41,7 +41,7 @@ class UsersTableSeeder extends Seeder
         $roles = Role::whereIn('id', [1, 2])->get();
 
         // Attacher les rôles à l'utilisateur dans la table pivot
-        $user1->roles()->attach($roles);
+        $user1->roles()->attach(1);
 
 
 

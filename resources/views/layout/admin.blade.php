@@ -14,11 +14,11 @@
                 <!-- Barre latérale -->
                 <ul>
                     <li><a href="{{ route('admin.dashboard') }}"
-                    class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"
+                    class="{{ setMenuActive('admin.dashboard') }}"
                     >Accueil</a></li>
                     @can('viewUserInAdmin')
                     <li><a href="{{ route('admin.users.index') }}"
-                    class="{{ request()->routeIs('admin.users.index') ? 'active' : '' }}"
+                    class="{{ setMenuClass('admin.users.', 'active') }}"
                     >Utilisateurs</a></li>
                     @endcan
 

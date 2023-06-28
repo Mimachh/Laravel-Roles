@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
-                    <td>{{ $user->roles->pluck('name')->implode(', ') }}</td>
+                    <td>{{ $user->allRoleNames }}</td>
                     <td>
                         <a href="{{ route('admin.users.edit', $user->id) }}" class="btn-edit">Éditer</a>
                     </td>

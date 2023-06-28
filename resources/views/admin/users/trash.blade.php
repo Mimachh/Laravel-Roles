@@ -24,7 +24,7 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
-                    <td>{{ $user->roles->pluck('name')->implode(', ') }}</td>
+                    <td>{{ $user->allRoleNames }}</td>
                     <td class="checkbox-column">
                         <input type="checkbox" name="selected_users[]" value="{{ $user->id }}" class="select-checkbox">
                     </td>

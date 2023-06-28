@@ -63,7 +63,18 @@ class User extends Authenticatable
     ];
 
 
+    public function hasRole($role) {
+        return $this->roles()->where('name', $role)->first() !== null;
+    }
+
+    public function hasAnyRole($roles) {
+        return $this->roles()->whereIn('name', $roles)->first() !== null;
+    }
 
 
+    // Utiliser comme nouveau champs dans l'index des users par exemple, il faut utiliser pascalCase, get et Attribute
+    public function getAllRoleNamesAttribute() {
+        return $this->roles->implode("name", ', ' );
+    }
 
 }
